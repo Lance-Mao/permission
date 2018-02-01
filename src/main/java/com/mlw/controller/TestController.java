@@ -9,6 +9,7 @@ import com.mlw.param.TestVo;
 import com.mlw.util.BeanValidator;
 import com.mlw.util.JsonMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,6 +55,10 @@ public class TestController {
         log.info(JsonMapper.obj2String(module));
         BeanValidator.check(vo);
         return JsonData.success("test validate");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(StringUtils.join("一级", ".", 3));
     }
 
 }

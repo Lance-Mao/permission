@@ -1,7 +1,16 @@
 package com.mlw.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.Date;
 
+@Builder
+@NoArgsConstructor  //无参构造方法
+@AllArgsConstructor //所有参数的构造方法
+@ToString
 public class SysDept {
     private Integer id;
 
