@@ -81,7 +81,7 @@ public class SysTreeService {
             //处理下一层
             List<DeptLevelDto> tempDeptList = (List<DeptLevelDto>) levelDeptMap.get(nextLevel);
 
-            if (CollectionUtils.isEmpty(tempDeptList)) {
+            if (CollectionUtils.isNotEmpty(tempDeptList)) {
                 //排序
                 Collections.sort(tempDeptList, deptSeqComparator);
                 //设置下一层部门
