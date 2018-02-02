@@ -37,4 +37,11 @@ public class SysDeptController {
         List<DeptLevelDto> dtoList = sysTreeService.deptTree();
         return JsonData.success(dtoList);
     }
+
+    @RequestMapping("update.json")
+    @ResponseBody
+    public JsonData update(DeptParam param) {
+        sysDeptService.update(param);
+        return JsonData.success();
+    }
 }
