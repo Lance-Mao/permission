@@ -7,7 +7,6 @@ import com.mlw.model.SysUser;
 import com.mlw.param.UserParam;
 import com.mlw.util.BeanValidator;
 import com.mlw.util.MD5Util;
-import com.mlw.util.PasswordUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -62,10 +61,14 @@ public class SysUserService {
     }
 
     private boolean checkEmailExist(String mail, Integer id) {
-        return false;
+        return sysUserMapper.countByMail(mail,id) > 0;
     }
 
     private boolean checkTelephoneExist(String telephone, Integer id) {
-        return false;
+        return sysUserMapper.countByMail(telephone,id) > 0;
+    }
+
+    public SysUser findByKeyword(String keyword) {
+        return sysUserMapper.findByKeyword(keyword);
     }
 }
