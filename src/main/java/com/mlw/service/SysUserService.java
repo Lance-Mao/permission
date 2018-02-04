@@ -1,6 +1,8 @@
 package com.mlw.service;
 
 import com.google.common.base.Preconditions;
+import com.mlw.beans.PageQuery;
+import com.mlw.beans.PageResult;
 import com.mlw.dao.SysUserMapper;
 import com.mlw.exception.ParamException;
 import com.mlw.model.SysUser;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class SysUserService {
@@ -70,5 +73,15 @@ public class SysUserService {
 
     public SysUser findByKeyword(String keyword) {
         return sysUserMapper.findByKeyword(keyword);
+    }
+
+    public PageResult<SysUser> getPageByDeptId(int deptId, PageQuery page){
+        BeanValidator.check(page);
+        int count = sysUserMapper.countByDeptId(deptId);
+        if (count > 0) {
+            List<SysUser> list = sysUserMapper.getPageByDeptId(deptId,page);
+            return PageResult.<SysUser>builder().total(count).data(list).build();
+        }
+        return PageResult.<SysUser>builder().build();
     }
 }

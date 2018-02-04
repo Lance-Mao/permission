@@ -46,9 +46,9 @@
             pageNo : pageNo,
             maxPageNo : maxPageNo,
             nextPageNo: pageNo >= maxPageNo ? maxPageNo : (pageNo + 1),
-            beforePageNo : pageNo == 1 ? 1 : (pageNo - 1),
-            firstUrl : (pageNo == 1) ? '' : (url + paramStartChar + "pageNo=1&pageSize=" + pageSize),
-            beforeUrl: (pageNo == 1) ? '' : (url + paramStartChar + "pageNo=" + (pageNo - 1) + "&pageSize=" + pageSize),
+            beforePageNo : pageNo === 1 ? 1 : (pageNo - 1),
+            firstUrl : (pageNo === 1) ? '' : (url + paramStartChar + "pageNo=1&pageSize=" + pageSize),
+            beforeUrl: (pageNo === 1) ? '' : (url + paramStartChar + "pageNo=" + (pageNo - 1) + "&pageSize=" + pageSize),
             nextUrl : (pageNo >= maxPageNo) ? '' : (url + paramStartChar + "pageNo=" + (pageNo + 1) + "&pageSize=" + pageSize),
             lastUrl : (pageNo >= maxPageNo) ? '' : (url + paramStartChar + "pageNo=" + maxPageNo + "&pageSize=" + pageSize)
         };
